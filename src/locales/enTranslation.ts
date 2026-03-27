@@ -1,5 +1,6 @@
 export const enTranslation = {
       header: {
+        siteTitle: 'ITM Holding',
         contactCta: 'Contact us',
         langFr: 'FR',
         langEn: 'EN',
