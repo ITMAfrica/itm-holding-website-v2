@@ -138,8 +138,20 @@ export const HeroSliderSection: React.FC = () => {
                 transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
                 className="flex flex-col md:flex-row gap-3 md:gap-2 xl:gap-8 items-start mb-8 md:mb-10 xl:mb-12"
               >
-                <div className="hidden md:block w-px h-16 bg-gradient-to-b from-cyan-500/50 to-transparent"></div>
-                <p className="text-2xl text-[#90A1B9] max-w-lg leading-[39px] font-light">{t(s.subtitleKey)}</p>
+                <motion.div
+                  initial={{ height: 0 }}
+                  animate={{ height: 64 }}
+                  transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: 0.3 }}
+                  className="hidden md:block w-px bg-gradient-to-b from-cyan-500/50 to-transparent"
+                />
+                <motion.p
+                  initial={{ opacity: 0, y: 15 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: 0.4 }}
+                  className="text-2xl text-[#90A1B9] max-w-lg leading-[39px] font-light"
+                >
+                  {t(s.subtitleKey)}
+                </motion.p>
               </motion.div>
 
               <motion.div
@@ -147,14 +159,14 @@ export const HeroSliderSection: React.FC = () => {
                   hidden: { opacity: 0, y: 20 },
                   visible: { opacity: 1, y: 0 },
                 }}
-                className="flex flex-col sm:flex-row gap-3 md:gap-4 xl:gap-6"
+                className="flex flex-col sm:flex-row flex-wrap gap-3 md:gap-4 items-start sm:items-center"
               >
-                <Button asChild className="bg-white text-slate-950 hover:bg-cyan-50 rounded-none px-4 py-2 md:px-6 md:py-3 xl:px-10 xl:py-5 text-xs md:text-sm xl:text-lg font-bold tracking-widest uppercase transition-colors group whitespace-nowrap">
+                <Button asChild className="w-fit max-w-full bg-white text-slate-950 hover:bg-cyan-50 rounded-none px-4 py-2 md:px-6 md:py-3 text-xs md:text-sm font-bold tracking-widest uppercase transition-colors group whitespace-nowrap">
                   <Link to={getLocalizedPath('/industries', currentLng)}>
                     {t('hero.ctaPrimary')}
                   </Link>
                 </Button>
-                <Button asChild variant="outline" className="border-slate-600/70 text-white hover:border-cyan-400/55 hover:bg-cyan-500/15 hover:text-white rounded-none px-4 py-2 md:px-6 md:py-3 xl:px-10 xl:py-5 text-xs md:text-sm xl:text-lg tracking-widest uppercase bg-transparent backdrop-blur-sm transition-colors duration-300 whitespace-nowrap">
+                <Button asChild variant="outline" className="w-fit max-w-full border-slate-600/70 text-white hover:border-cyan-400/55 hover:bg-cyan-500/15 hover:text-white rounded-none px-4 py-2 md:px-6 md:py-3 text-xs md:text-sm tracking-widest uppercase bg-transparent backdrop-blur-sm transition-colors duration-300 whitespace-nowrap">
                   <Link to={getLocalizedPath('/companies', currentLng)}>{t('hero.ctaSecondary')}</Link>
                 </Button>
               </motion.div>

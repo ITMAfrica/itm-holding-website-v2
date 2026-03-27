@@ -155,23 +155,6 @@ export const Industries: React.FC = () => {
               </div>
             </div>
 
-            <div className="md:col-span-4 bg-white p-8 md:p-12 flex flex-col md:flex-row items-center justify-between gap-8 border border-slate-100 shadow-[0_20px_50px_rgba(0,0,0,0.03)] relative overflow-hidden group">
-              <div className="absolute top-0 left-0 w-1 h-full bg-[#004080] transform -translate-x-full group-hover:translate-x-0 transition-transform duration-500"></div>
-              <div className="relative z-10">
-                <h3 className="text-2xl font-bold text-slate-900 mb-4 uppercase tracking-tight">{t('industriesPage.digitalTitle')}</h3>
-                <p className="text-slate-600 max-w-2xl font-light leading-relaxed">{t('industriesPage.digitalBody')}</p>
-              </div>
-              <div className="flex gap-12 shrink-0 relative z-10">
-                <div className="text-center">
-                  <div className="text-4xl font-bold text-[#004080] mb-1">4.0</div>
-                  <div className="text-[10px] text-slate-400 uppercase tracking-[0.2em] font-bold">{t('industriesPage.industry40')}</div>
-                </div>
-                <div className="text-center">
-                  <div className="text-4xl font-bold text-[#004080] mb-1">100%</div>
-                  <div className="text-[10px] text-slate-400 uppercase tracking-[0.2em] font-bold">{t('industriesPage.connected')}</div>
-                </div>
-              </div>
-            </div>
           </div>
         </div>
       </section>
