@@ -1,29 +1,27 @@
 import React from 'react';
 import { motion } from 'motion/react';
-import { Button } from './ui/button';
-import { ArrowRight } from 'lucide-react';
 
-interface PageHeaderProps {
+interface HeroSectionProps {
   title: React.ReactNode;
   subtitle: React.ReactNode;
-  highlight: string;
+  highlight?: string;
   backgroundImage: string;
   children?: React.ReactNode;
 }
 
-export function PageHeader({ title, subtitle, highlight, backgroundImage, children }: PageHeaderProps) {
+export const HeroSection: React.FC<HeroSectionProps> = ({ title, subtitle, highlight, backgroundImage, children }) => {
   return (
     <div className="relative h-screen w-full overflow-hidden bg-slate-900">
       {/* Background Image */}
-      <motion.div 
+      <motion.div
         initial={{ scale: 1.1 }}
         animate={{ scale: 1 }}
         transition={{ duration: 1.5, ease: "easeOut" }}
         className="absolute inset-0 w-full h-full"
       >
-        <img 
-          src={backgroundImage} 
-          alt={title} 
+        <img
+          src={backgroundImage}
+          alt={String(title)}
           className="w-full h-full object-cover"
         />
         {/* Gradient Overlay */}
@@ -31,7 +29,7 @@ export function PageHeader({ title, subtitle, highlight, backgroundImage, childr
       </motion.div>
 
       {/* Content */}
-      <div className="relative h-full w-full px-8 md:px-32 lg:px-[15vw] flex flex-col justify-center z-10">
+      <div className="relative h-full w-full px-8 lg:px-[15vw] flex flex-col justify-center z-10">
         <div className="w-full mt-[122px] mb-[31px] max-w-7xl relative z-10 mr-[0px] ml-[0px]">
           <motion.div
             initial="hidden"
@@ -47,8 +45,22 @@ export function PageHeader({ title, subtitle, highlight, backgroundImage, childr
               }
             }}
           >
+            {highlight && (
+              <motion.div
+                variants={{
+                  hidden: { opacity: 0, y: 20 },
+                  visible: { opacity: 1, y: 0 },
+                }}
+                transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+                className="flex items-center gap-4 mb-6"
+              >
+                <div className="hidden md:block w-12 h-px bg-cyan-500/60" />
+                <span className="text-cyan-400 font-bold tracking-[0.35em] uppercase text-xs">{highlight}</span>
+              </motion.div>
+            )}
+
             {/* Massive Headline */}
-            <motion.h1 
+            <motion.h1
               variants={{
                 hidden: { opacity: 0, y: 40 },
                 visible: { opacity: 1, y: 0 }
@@ -58,9 +70,9 @@ export function PageHeader({ title, subtitle, highlight, backgroundImage, childr
             >
               {title}
             </motion.h1>
-            
+
             {/* Editorial Subtitle */}
-            <motion.div 
+            <motion.div
               variants={{
                 hidden: { opacity: 0, x: -30 },
                 visible: { opacity: 1, x: 0 }
@@ -73,7 +85,7 @@ export function PageHeader({ title, subtitle, highlight, backgroundImage, childr
                 {subtitle}
               </p>
             </motion.div>
-            
+
             {/* Actions */}
             {children && (
               <motion.div
@@ -90,4 +102,4 @@ export function PageHeader({ title, subtitle, highlight, backgroundImage, childr
       </div>
     </div>
   );
-}
+};

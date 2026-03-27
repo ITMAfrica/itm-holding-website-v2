@@ -34,31 +34,35 @@ const buttonVariants = cva(
   },
 );
 
-function Button({
-  className,
-  variant,
-  size,
-  asChild = false,
-  ...props
-}: React.ComponentProps<"button"> &
-  VariantProps<typeof buttonVariants> & {
-    asChild?: boolean;
-  }) {
+const Button = React.forwardRef<
+  HTMLButtonElement,
+  React.ComponentProps<"button"> &
+    VariantProps<typeof buttonVariants> & {
+      asChild?: boolean;
+    }
+>(({ className, variant, size, asChild = false, ...props }, ref) => {
   const Comp = asChild ? Slot : "button";
 
   // Filter out Figma-specific props that cause React warnings on DOM elements
-  const { 
-    _fgT, _fgt, _fgS, _fgs, _fgB, _fgb, 
-    ...filteredProps 
-  } = props as any;
+  const {
+    _fgT,
+    _fgt,
+    _fgS,
+    _fgs,
+    _fgB,
+    _fgb,
+    ...filteredProps
+  } = props as Record<string, unknown>;
 
   return (
     <Comp
       data-slot="button"
       className={cn(buttonVariants({ variant, size, className }))}
+      ref={ref}
       {...filteredProps}
     />
   );
-}
+});
+Button.displayName = "Button";
 
 export { Button, buttonVariants };
