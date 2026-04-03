@@ -26,15 +26,7 @@ export const ValuesSection: React.FC = () => {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 border-t border-slate-200">
-          <div className="group border-b md:border-b-0 md:border-r border-slate-200 p-12 relative overflow-hidden transition-all duration-500 cursor-default">
-            <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700 z-0">
-              <div className="absolute inset-0 bg-gradient-to-br from-[#004080] to-[#001a33] opacity-95"></div>
-              <img
-                src="https://images.unsplash.com/photo-1760627927489-c0dc59976f13?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtb2Rlcm4lMjBjb3Jwb3JhdGUlMjBhcmNoaXRlY3R1cmUlMjBkZXRhaWwlMjBibHVlJTIwYWJzdHJhY3R8ZW58MXx8fHwxNzY5MTYxODE3fDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
-                alt=""
-                className="w-full h-full object-cover opacity-20 mix-blend-overlay"
-              />
-            </div>
+          <div className="group border-b md:border-b-0 md:border-r border-slate-200 p-12 hover:bg-[#004080] transition-colors duration-500 cursor-default">
             <div className="relative z-10">
               <div className="mb-8 text-[#90A1B9] group-hover:text-cyan-400 transition-colors duration-500">
                 <CheckCircle size={40} strokeWidth={1} />

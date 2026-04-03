@@ -36,12 +36,49 @@ export const TimelineSection: React.FC = () => {
           <h2 className="text-3xl md:text-4xl font-bold text-slate-900">{t('timeline.title')}</h2>
         </div>
 
-        <div className="relative max-w-4xl mx-auto">
-          <div className="absolute left-4 md:left-1/2 top-0 bottom-0 w-px bg-slate-300"></div>
+        {/* Mobile Layout - Vertical Stack */}
+        <div className="md:hidden relative max-w-4xl mx-auto">
+          {/* Vertical Timeline Line */}
+          <div className="absolute left-4 top-0 bottom-0 w-px bg-slate-300"></div>
+
+          <div className="relative space-y-16">
+            {timelineItems.map((item, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.3, margin: "-100px" }}
+                transition={{ duration: 0.7, delay: index * 0.1 }}
+                className="relative pl-12"
+              >
+                {/* Timeline Dot */}
+                <div className="absolute left-4 top-0 w-3 h-3 bg-white border-4 border-cyan-500 rounded-full -translate-x-1/2 z-10 shadow-[0_0_0_4px_rgba(255,255,255,1)]"></div>
+
+                {/* Content */}
+                <div className="space-y-4">
+                  <span className="text-5xl font-bold text-[rgb(231,231,231)] leading-none block select-none">{item.year}</span>
+                  <h3 className="text-xl font-bold text-slate-900 flex items-center gap-3">
+                    <span className="w-6 h-px bg-cyan-500"></span>
+                    {item.title}
+                  </h3>
+                  <p className="text-slate-600 leading-relaxed font-light">{item.desc}</p>
+                  
+                  {/* Image */}
+                  <div className="relative overflow-hidden aspect-[4/3] shadow-2xl rounded-lg group">
+                    <div className="absolute inset-0 bg-slate-900/10 group-hover:bg-transparent transition-colors duration-500 z-10"></div>
+                    <img src={item.image} alt={item.title} className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" />
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+
+        {/* Desktop Layout - Alternating */}
+        <div className="hidden md:block relative max-w-4xl mx-auto">
+          <div className="absolute left-1/2 top-0 bottom-0 w-px bg-slate-300 -translate-x-1/2"></div>
 
           <div className="relative space-y-24">
-            <div className="absolute left-4 md:left-1/2 top-0 bottom-0 w-px bg-slate-200 -translate-x-1/2 hidden md:block"></div>
-
             {timelineItems.map((item, index) => (
               <motion.div
                 key={index}
@@ -49,21 +86,21 @@ export const TimelineSection: React.FC = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.3, margin: "-200px" }}
                 transition={{ duration: 0.7, delay: index * 0.1 }}
-                className={`flex flex-col md:flex-row items-center gap-12 md:gap-24 ${index % 2 === 0 ? '' : 'md:flex-row-reverse'} relative`}
+                className={`flex flex-row items-center gap-24 ${index % 2 === 0 ? '' : 'flex-row-reverse'} relative`}
               >
-                <div className={`w-full md:w-1/2 ${index % 2 === 0 ? 'md:text-right' : 'md:text-left'}`}>
+                <div className={`w-1/2 ${index % 2 === 0 ? 'text-right' : 'text-left'}`}>
                   <span className="text-6xl md:text-8xl font-bold text-[rgb(231,231,231)] leading-none mb-4 block select-none">{item.year}</span>
-                  <h3 className="text-2xl font-bold text-slate-900 mb-4 flex items-center gap-3 justify-start md:justify-end group-hover:text-cyan-500 transition-colors">
-                    {index % 2 !== 0 && <span className="w-8 h-px bg-cyan-500 hidden md:block"></span>}
+                  <h3 className="text-2xl font-bold text-slate-900 mb-4 flex items-center gap-3 justify-end group-hover:text-cyan-500 transition-colors">
+                    {index % 2 !== 0 && <span className="w-8 h-px bg-cyan-500"></span>}
                     {item.title}
-                    {index % 2 === 0 && <span className="w-8 h-px bg-cyan-500 hidden md:block"></span>}
+                    {index % 2 === 0 && <span className="w-8 h-px bg-cyan-500"></span>}
                   </h3>
                   <p className="text-slate-600 leading-relaxed text-lg font-light">{item.desc}</p>
                 </div>
 
-                <div className="absolute left-4 md:left-1/2 w-4 h-4 bg-white border-4 border-cyan-500 rounded-full -translate-x-1/2 z-10 hidden md:block shadow-[0_0_0_4px_rgba(255,255,255,1)]"></div>
+                <div className="absolute left-1/2 w-4 h-4 bg-white border-4 border-cyan-500 rounded-full -translate-x-1/2 z-10 shadow-[0_0_0_4px_rgba(255,255,255,1)]"></div>
 
-                <div className="w-full md:w-1/2 pl-12 md:pl-0">
+                <div className="w-1/2">
                   <div
                     className={`relative overflow-hidden aspect-[4/3] shadow-2xl ${
                       index % 2 === 0 ? 'rounded-tl-[4rem] rounded-br-none' : 'rounded-tr-[4rem] rounded-bl-none'

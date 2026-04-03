@@ -26,7 +26,7 @@ interface NavItem {
   external?: boolean;
 }
 
-/** Full language name in the current UI locale (menu + accessibilité) */
+
 function languageOptionName(code: Language, t: (key: string) => string): string {
   switch (code) {
     case 'fr':

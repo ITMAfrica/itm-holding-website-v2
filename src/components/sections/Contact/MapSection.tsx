@@ -7,21 +7,21 @@ export const MapSection: React.FC = () => {
   const { t } = useTranslation();
 
   return (
-    <div className="w-full px-8 lg:px-[15vw]">
-      <div className="mt-32 w-full border-t border-gray-200 pt-24">
-        <div className="flex justify-between items-end mb-12">
+    <div className="w-full px-8 lg:px-[15vw] pb-12 md:pb-16 lg:pb-20">
+      <div className="mt-20 w-full border-t border-gray-200 pt-12 md:pt-16">
+        <div className="flex justify-between items-end mb-8">
           <div>
             <h2 className="text-4xl font-light text-[#004080] mb-2">{t('map.title')}</h2>
             <p className="text-[#90A1B9] uppercase tracking-[0.2em] text-xs font-bold">{t('map.subtitle')}</p>
           </div>
         </div>
 
-        <div className="bg-[#004080] w-full min-h-[500px] grid grid-cols-1 lg:grid-cols-12 border border-[#004080]">
-          <div className="lg:col-span-4 p-12 flex flex-col justify-between relative overflow-hidden">
+        <div className="bg-[#004080] w-full min-h-[360px] lg:min-h-[400px] grid grid-cols-1 lg:grid-cols-12 border border-[#004080]">
+          <div className="lg:col-span-4 p-8 md:p-10 flex flex-col justify-between relative overflow-hidden">
             <div className="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full blur-3xl -mr-32 -mt-32 pointer-events-none"></div>
             <div className="relative z-10">
-              <div className="mb-12">
-                <MapPin className="text-white mb-6" size={32} strokeWidth={1} />
+              <div className="mb-8">
+                <MapPin className="text-white mb-4" size={28} strokeWidth={1} />
                 <h3 className="text-white text-2xl font-light leading-snug mb-2">{t('map.hqTitle')}</h3>
                 <p className="text-[#90A1B9] font-light">{t('map.hqSubtitle')}</p>
               </div>
@@ -38,8 +38,8 @@ export const MapSection: React.FC = () => {
                 </div>
               </div>
             </div>
-            <div className="relative z-10 pt-12">
-              <Button type="button" className="w-full bg-white text-[#004080] hover:bg-[#90A1B9] hover:text-white rounded-none h-14 uppercase tracking-widest text-xs font-bold transition-all">
+            <div className="relative z-10 pt-8">
+              <Button type="button" className="w-full bg-white text-[#004080] hover:bg-[#90A1B9] hover:text-white rounded-none h-11 uppercase tracking-widest text-xs font-bold transition-all">
                 {t('map.openMaps')}
               </Button>
             </div>
@@ -54,7 +54,7 @@ export const MapSection: React.FC = () => {
               allowFullScreen={true}
               loading="lazy"
               title={t('map.iframeTitle')}
-              className="opacity-80 hover:opacity-100 transition-opacity min-h-[400px] lg:min-h-0 lg:h-full"
+              className="opacity-80 hover:opacity-100 transition-opacity min-h-[260px] sm:min-h-[300px] lg:min-h-0 lg:h-full"
             ></iframe>
             <div className="absolute bottom-0 right-0 bg-white px-4 py-2 text-[10px] font-bold uppercase tracking-widest text-[#004080] z-10">{t('map.overlay')}</div>
           </div>
