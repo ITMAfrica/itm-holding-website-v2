@@ -8,7 +8,7 @@ export const ValuesSection: React.FC = () => {
   return (
     <section className="py-24 bg-white">
       <div className="w-full px-8 lg:px-[15vw]">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 mb-[90px] items-end px-[12px] py-[0px] mt-[0px] mr-[-30px] ml-[-10px]">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 mb-[90px] items-end">
           <div className="lg:col-span-5">
             <div className="flex items-center gap-3 mb-6">
               <span className="w-12 h-px bg-[#004080]"></span>

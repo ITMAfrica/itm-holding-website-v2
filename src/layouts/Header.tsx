@@ -155,7 +155,7 @@ export const Header: React.FC = () => {
         </Link>
 
         {/* Desktop Nav */}
-        <nav className="hidden xl:flex items-center gap-5 m-[0px] p-[0px] px-[-1px] py-[0px] px-[6px] bg-[rgba(255,255,255,0)]">
+        <nav className="hidden xl:flex items-center gap-5">
           {NAV_PATHS.map((item) => {
             const to = getLocalizedPath(item.path, currentLng);
             const isActive = pathWithoutLang === item.path || (item.path !== '/' && pathWithoutLang.startsWith(item.path + '/'));
@@ -181,16 +181,16 @@ export const Header: React.FC = () => {
             );
           })}
 
-          <div className="ml-2 flex items-center border-l border-white/20 pl-4">
+          <div className="ml-2 flex items-center gap-6 border-l border-white/20 pl-4">
             <LanguageSwitcher currentLng={currentLng} t={t} onSelect={switchLanguage} />
-          </div>
 
-          <Button asChild className="bg-[#004080] hover:bg-[#0066a3] hover:shadow-[0_0_20px_rgba(0,146,184,0.35)] text-white font-bold rounded-none px-8 h-10 shadow-none transition-all duration-300 ml-[25px] mr-[0px] my-[0px] uppercase tracking-widest text-[11px]">
-            <Link to={getLocalizedPath('/contact', currentLng)} className="flex items-center gap-2">
-              {t('header.contactCta')}
-              <ArrowRight size={14} />
-            </Link>
-          </Button>
+            <Button asChild className="bg-[#004080] hover:bg-[#0066a3] hover:shadow-[0_0_20px_rgba(0,146,184,0.35)] text-white font-bold rounded-none px-8 h-10 shadow-none transition-all duration-300 uppercase tracking-widest text-[11px]">
+              <Link to={getLocalizedPath('/contact', currentLng)} className="flex items-center gap-2">
+                {t('header.contactCta')}
+                <ArrowRight size={14} />
+              </Link>
+            </Button>
+          </div>
         </nav>
 
         {/* Mobile Menu Toggle */}

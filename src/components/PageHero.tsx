@@ -26,7 +26,7 @@ export function PageHero({
         <div className="absolute inset-0 bg-gradient-to-r from-blue-950/90 via-blue-900/70 to-blue-900/30"></div>
       </div>
 
-      <div className="relative z-10 h-full container mx-auto px-4 flex flex-col justify-center">
+      <div className="relative z-10 h-full w-full max-w-[1920px] mx-auto px-8 lg:px-[15vw] flex flex-col justify-center">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}

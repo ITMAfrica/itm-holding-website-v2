@@ -10,7 +10,7 @@ export const About: React.FC = () => {
   const { t } = useTranslation();
 
   return (
-    <div className="bg-white min-h-screen font-sans selection:bg-cyan-200 selection:text-slate-900">
+    <div className="min-w-0 w-full bg-white min-h-screen font-sans selection:bg-cyan-200 selection:text-slate-900">
       <HeroSection
         highlight={t('aboutPage.heroHighlight')}
         title={
