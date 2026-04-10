@@ -8,9 +8,10 @@ export const FounderSection: React.FC = () => {
 
   return (
     <section className="py-24 bg-white">
-      <div className="w-full px-8 lg:px-[15vw]">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-20 items-start">
-          <div className="lg:col-span-5 relative group sticky top-24">
+      {/* max-w + minmax(0,1fr): même gabarit que les autres sections About, grilles qui ne gonflent pas au-delà du conteneur */}
+      <div className="mx-auto w-full min-w-0 max-w-[1920px] px-6 sm:px-8 lg:px-[15vw]">
+        <div className="grid w-full min-w-0 grid-cols-1 gap-12 lg:grid-cols-[repeat(12,minmax(0,1fr))] lg:gap-14 xl:gap-20 items-start">
+          <div className="min-w-0 lg:col-span-5 relative group sticky top-24 w-full md:max-w-sm md:mx-auto lg:max-w-none lg:mx-0">
             <div className="relative overflow-hidden">
               <div className="absolute inset-0 bg-slate-950/10 group-hover:bg-transparent transition-colors duration-700 z-10"></div>
               <img
@@ -27,15 +28,17 @@ export const FounderSection: React.FC = () => {
             </div>
           </div>
 
-          <div className="lg:col-span-7 relative z-30">
-            <div className="absolute -top-20 -left-10 text-[12rem] font-bold text-slate-50 select-none pointer-events-none leading-none z-0 opacity-60">2011</div>
+          <div className="min-w-0 overflow-x-clip lg:col-span-7 relative z-30">
+            <div className="absolute -top-20 -left-10 text-[clamp(5rem,14vw,12rem)] font-bold text-slate-50 select-none pointer-events-none leading-none z-0 opacity-60">
+              2011
+            </div>
 
-            <div className="relative z-10 pt-12 bg-white">
+            <div className="relative z-10 min-w-0 max-w-full pt-12 bg-white">
               <div className="flex items-center gap-4 mb-6">
                 <span className="w-12 h-px bg-slate-300"></span>
                 <span className="text-cyan-600 font-bold tracking-widest uppercase text-xs">{t('founder.label')}</span>
               </div>
-              <h2 className="text-5xl font-bold text-slate-900 mb-5 leading-tight">
+              <h2 className="text-3xl font-bold text-slate-900 mb-5 leading-tight break-words sm:text-4xl xl:text-5xl">
                 {t('founder.title1')}
                 <br />
                 <span className="text-[rgb(0,64,128)] bg-clip-text bg-gradient-to-r from-cyan-500 to-blue-600">{t('founder.title2')}</span>
@@ -47,7 +50,7 @@ export const FounderSection: React.FC = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, amount: 0.3, margin: "-150px" }}
                   transition={{ duration: 0.8 }}
-                  className="prose prose-lg prose-slate text-slate-600 leading-relaxed space-y-6 pb-12"
+                  className="max-w-full text-base text-slate-600 leading-relaxed sm:text-lg space-y-6 pb-12 break-words [&_p]:max-w-full"
                 >
                   <p className="text-xl text-slate-900 font-light italic">&quot;{t('founder.pullQuote')}&quot;</p>
                   <p>{t('founder.p1')}</p>

@@ -19,7 +19,7 @@ export const CompanyDetail: React.FC = () => {
 
   if (!company) {
     return (
-      <div className="min-h-screen bg-white flex items-center justify-center px-8">
+      <div className="min-h-screen bg-white flex items-center justify-center px-8 lg:px-[15vw]">
         <div className="text-center">
           <h1 className="text-4xl font-bold text-slate-900 mb-4">{t('companyDetail.notFoundTitle')}</h1>
           <p className="text-slate-600 mb-8">{t('companyDetail.notFoundBody')}</p>
