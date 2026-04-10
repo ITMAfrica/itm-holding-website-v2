@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link, useParams } from 'react-router';
 import { useTranslation } from 'react-i18next';
-import { MapPin, Phone, Mail, Linkedin, Facebook, Twitter, Globe } from 'lucide-react';
+import { MapPin, Phone, Mail, Linkedin, Facebook, Instagram } from 'lucide-react';
 import logoImg from '@/assets/logo.png';
 import { getLocalizedPath, resolveLanguageFromParams } from '@/i18n';
 
@@ -30,14 +30,15 @@ export const Footer: React.FC = () => {
             <p className="text-[rgb(144,161,185)] leading-relaxed mb-8 font-light text-[16px] font-bold font-normal">{t('footer.tagline')}</p>
             <div className="flex gap-4 ">
               {[
-                { icon: Linkedin, href: '#' },
-                { icon: Facebook, href: '#' },
-                { icon: Twitter, href: '#' },
-                { icon: Globe, href: '#' },
+                { icon: Linkedin, href: 'https://www.linkedin.com/in/itm-holding-7526a6162/' },
+                { icon: Facebook, href: 'https://www.facebook.com/itmholding' },
+                { icon: Instagram, href: 'https://www.instagram.com/itm.holding/' },
               ].map((social, i) => (
                 <a
                   key={i}
                   href={social.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="w-12 h-12 rounded-none border border-slate-800 flex items-center justify-center text-slate-400 hover:bg-cyan-500 hover:border-cyan-500 hover:text-white transition-all duration-300"
                 >
                   <social.icon size={20} />
